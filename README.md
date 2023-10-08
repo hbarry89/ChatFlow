@@ -6,13 +6,11 @@ ChatFlow is a conversational AI web app built with Open AI's API, Python, and Re
 
 ## :computer: Usage
 
-Due to costs associated with hosting a server, this app is not deployed. To run the app, follow these instructions:
-
-TBA
+Due to costs associated with hosting a server, this app is not deployed.
 
 ### Preview
 
-- TBA:
+<img width="1195" alt="ChatFlow Preview" src="https://github.com/hbarry89/ChatFlow/assets/106551259/419013e7-968e-4903-a86e-324509d85e77">
 
 <hr>
 
@@ -21,6 +19,11 @@ TBA
 - Python
 - React
 - OpenAI API
+- Bootstrap
+
+## :bulb: Future Development
+- Enhance UI.
+- Fix bug when chat hallucinates.
 
 ## :books: Resources
 

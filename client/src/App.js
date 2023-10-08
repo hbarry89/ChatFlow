@@ -1,5 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form } from 'react-bootstrap';
 
 function App() {
     const [question, setQuestion] = useState("");
@@ -28,15 +30,18 @@ function App() {
 
   return (
     <>
+        <div className="parent">
         <pre>
             {prevAnswer}<br/>
             {answer}
         </pre>
-
-        <form onSubmit={handleSubmit}>
-        <input type="text" name="question" />
-        <input type="submit" value="Ask" />
+        </div>
+        <div className="parent">
+        <form className="form-container form-input" onSubmit={handleSubmit}>
+            <input className="form-input form-control" type="text" name="question" />
+            <input className="btn btn-secondary" type="submit" value="Ask" />
         </form>
+        </div>
     </>
   );
 }
