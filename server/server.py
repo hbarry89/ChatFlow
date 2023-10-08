@@ -26,4 +26,4 @@ def ask():
     return {"answers": message}
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
