@@ -1,5 +1,5 @@
 import openai
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_from_directory
 from flask_cors import cross_origin
 
 import os
@@ -11,7 +11,12 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
 
-@app.route('/ask')
+# Serve the React app's index.html
+@app.route('/client/public/index.html')
+def serve_index():
+    return send_from_directory('static', 'index.html')
+
+@app.route('/')
 def index():
     return render_template('index.html')
 
