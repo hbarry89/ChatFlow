@@ -6,6 +6,8 @@ ChatFlow is a conversational AI web app built with Open AI's API, Python, and Re
 
 ## :computer: Usage
 
+[Click here](https://chatflow-986171215eab.herokuapp.com/) for the live link.
+
 Due to costs associated with hosting a server, this app is not deployed.
 
 ### Preview
