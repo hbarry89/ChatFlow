@@ -19,6 +19,7 @@ function App() {
         const getAnswer = async function() {
             let response = await fetch(`http://127.0.0.1:5000/ask?q=${question}`)
             response = await response.json();
+            console.log(response);
             setAnswer(response.answers);
             setPrevAnswer( prev => prev +'\n\n\r'+ answer)
         };
@@ -31,16 +32,17 @@ function App() {
   return (
     <>
         <div className="parent">
-        <pre>
-            {prevAnswer}<br/>
-            {answer}
-        </pre>
-        </div>
-        <div className="parent">
-        <form className="form-container form-input" onSubmit={handleSubmit}>
-            <input className="form-input form-control" type="text" name="question" />
-            <input className="btn btn-secondary" type="submit" value="Ask" />
-        </form>
+                <div className="previous-answer">{prevAnswer}</div>
+                
+                <br/>
+                
+                <div className="current-answer">{answer}</div>
+            </div>
+            <div className="parent">
+            <form className="form-container form-input" onSubmit={handleSubmit}>
+                <input className="form-input form-control" type="text" name="question" />
+                <input className="btn btn-secondary" type="submit" value="Ask" />
+            </form>
         </div>
     </>
   );

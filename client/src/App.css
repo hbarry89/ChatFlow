@@ -13,8 +13,11 @@
   width: 600px;
 }
 
-pre {
+.previous-answer,
+.current-answer {
   margin: 50px;
-  border-radius: 2px;
+  padding: 50px;
+  background-color: slategray;
+  border-radius: 3rem;
   color: white;
 }
