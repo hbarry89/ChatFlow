@@ -1,5 +1,5 @@
 import openai
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_cors import cross_origin
 
 import os
@@ -10,6 +10,10 @@ load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route("/ask")
 @cross_origin()
