@@ -6,46 +6,53 @@ import { Form } from 'react-bootstrap';
 function App() {
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
-    const [prevAnswer, setPrevAnswer] = useState("")
+    const [prevAnswer, setPrevAnswer] = useState("");
 
-    const handleSubmit = function(event) {
+    const handleSubmit = function (event) {
         event.preventDefault();
-        setQuestion(event.target.elements.question.value);
+        const userQuestion = event.target.elements.question.value;
+        setQuestion(userQuestion);
     };
 
-    // useEffect(() => {}, []); // Basic useEffect Synax
-    useEffect(function() {
-
-        const getAnswer = async function() {
-            let response = await fetch(`http://127.0.0.1:5000/ask?q=${question}`)
-            response = await response.json();
-            console.log(response);
-            setAnswer(response.answers);
-            setPrevAnswer( prev => prev +'\n\n\r'+ answer)
+    useEffect(() => {
+        const getAnswer = async function () {
+            if (question.trim() !== '') {
+                try {
+                    const response = await fetch(`http://127.0.0.1:5000/ask?q=${question}`);
+                    const data = await response.json();
+                    setAnswer(data.answers);
+                    setPrevAnswer(prev => prev + '\n\n\r' + question + '\n\n\r' + data.answers);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
         };
 
-        question !== '' && getAnswer()
-        setQuestion('');
-        
+        getAnswer();
     }, [question]);
 
-  return (
-    <>
-        <div className="parent">
-                <div className="previous-answer">{prevAnswer}</div>
-                
-                <br/>
-                
-                <div className="current-answer">{answer}</div>
+    return (
+        <>
+            <div className="parent row">
+                <div className="previous-answer col-12">{prevAnswer}</div>
+                <br />
+                <div className="current-question col-12">{question}</div>
+                <br />
+                <div className="current-answer col-12">{answer}</div>
             </div>
             <div className="parent">
-            <form className="form-container form-input" onSubmit={handleSubmit}>
-                <input className="form-input form-control" type="text" name="question" />
-                <input className="btn btn-secondary" type="submit" value="Ask" />
-            </form>
-        </div>
-    </>
-  );
+                <form className="form-container form-input" onSubmit={handleSubmit}>
+
+                    
+                    <div className="input-group mb-3">
+                        <input type="text" name="question" className="form-control" placeholder="Send a message" aria-describedby="button-addon2" />
+                        <button className="btn btn-outline-secondary" type="submit" value="Ask" id="button-addon2">Send</button>
+                    </div>
+
+                </form>
+            </div>
+        </>
+    );
 }
 
 export default App;
