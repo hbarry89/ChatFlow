@@ -8,7 +8,7 @@ ChatFlow is a conversational AI web app built with Open AI's API, Python, and Re
 
 [Click here](https://chatflow-986171215eab.herokuapp.com/) for the live link.
 
-Due to Heroku fees, the live link might not be operable. However, you can run the app locally, by following these instructions:
+Due to hosting fees, the live link might not be operable. However, you can run the app locally, by following these instructions:
 1. Clone the repositary.
 2. On the server side, run:
 ```
@@ -50,7 +50,6 @@ npm start
 
 - [Tutorial](https://www.youtube.com/watch?v=OxAqkTH8Kc0) 
 - [ChatGPT](https://openai.com/blog/chatgpt)
-- [OpenAI Playground](https://platform.openai.com/playground)
 - <a href="https://www.flaticon.com/free-icons/chatbot" title="chatbot icons">Chatbot icons created by kliwir art - Flaticon</a>
 
 <p align="center">Thank you for visiting! :ribbon:</p>
